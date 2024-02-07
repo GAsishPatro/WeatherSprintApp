@@ -39,7 +39,7 @@ class HomeActivity : AppCompatActivity() {
     private fun buttonClickFunction(cityName: String) {
         if (cityName.isNotEmpty()) {
             val intent = Intent(this, MainActivity::class.java)
-            intent.putExtra("city", cityName.lowercase())
+            intent.putExtra("city", cityName)
             startActivity(intent)
         } else {
             Toast.makeText(this, "Please enter city name", Toast.LENGTH_LONG).show()
