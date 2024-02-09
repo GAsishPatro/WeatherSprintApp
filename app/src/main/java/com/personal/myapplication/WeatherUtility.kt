@@ -20,7 +20,8 @@ data class WeatherImage(
 
 data class WeatherLocation(
     val name: String,
-    val country: String
+    val country: String,
+    val localtime: String
 )
 
 
