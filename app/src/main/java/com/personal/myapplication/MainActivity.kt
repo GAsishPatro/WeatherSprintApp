@@ -3,10 +3,14 @@ package com.personal.myapplication
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.Constraints
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 
@@ -20,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var conditionTextView: TextView
     lateinit var weatherImage: ImageView
     lateinit var weatherVM: WeatherViewModel
+    lateinit var constraint: ConstraintLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +39,10 @@ class MainActivity : AppCompatActivity() {
         pressureTextView=findViewById(R.id.pressureT)
         conditionTextView=findViewById(R.id.conditionT)
         weatherImage=findViewById(R.id.weatherI)
+        constraint= findViewById(R.id.mainConstraint)
+
+        constraint.visibility = View.INVISIBLE
+
 
         val key="d1c2ffb7fe6c48c1a16103229240402"
 
@@ -45,16 +54,12 @@ class MainActivity : AppCompatActivity() {
             if (it==1) {
                 weatherVM.weatherResult.observe(this@MainActivity) {
                     bindingValues(it)
+                    constraint.visibility = View.VISIBLE
                 }
             } else if(it==2) {
                 showDialog(this , "city name error")
-                Toast.makeText(this@MainActivity, "City Don't Found",
-                    Toast.LENGTH_LONG).show()
-                finish()
             }else{
-                finish()
-                Toast.makeText(this@MainActivity, "Unable to get Details, Check your Network",
-                    Toast.LENGTH_LONG).show()
+                showDialog(this , "Internet problem")
             }
         }
     }
@@ -79,6 +84,7 @@ class MainActivity : AppCompatActivity() {
     fun showDialog(context: Context, message:String){
         val builder= AlertDialog.Builder(context)
                     builder.apply {
+                        setTitle("Error while getting Details")
                         setMessage(message)
                         setPositiveButton("OK"){dialog,
                         which-> finish()
