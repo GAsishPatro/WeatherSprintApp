@@ -13,26 +13,29 @@ class WeatherViewModel(application: Application):AndroidViewModel(application) {
 
     val repository = WeatherRepository()
 
+    val key="d1c2ffb7fe6c48c1a16103229240402"
+
     var weatherResult = MutableLiveData<WeatherResult>()
     var isSucessful = MutableLiveData<Int>()
 
-    fun weatherDetails(key: String, cityName: String){
+    fun weatherDetails(cityName: String){
 
         viewModelScope.launch(Dispatchers.Default) {
             Log.d("viewModelActivity", "Data Started generating")
             try{
                 val details = repository.getWeatherDetails(key, cityName)
                 weatherResult.postValue(details)
-                Log.d("ViewModelActivity", "Data generation successful")
                 isSucessful.postValue(1)
+                Log.d("ViewModelActivity", "Data generation successful")
             }
             catch(err: HttpException){
-                Log.d("ViewModelActivity", "User inputed a wrong city name")
-                isSucessful.postValue(2)
+                isSucessful.postValue(0)
+                Log.d("ViewModelActivity", "User inputed a wrong city name \n ${err.message}")
             }
             catch (err: Exception){
-                Log.d("ViewModelActivity", "Bad Internet Connection")
-                isSucessful.postValue(0)
+                isSucessful.postValue(2)
+                Log.d("ViewModelActivity", "Bad Internet Connection  \n" +
+                        " ${err.message}")
             }
         }
     }

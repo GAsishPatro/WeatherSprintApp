@@ -2,6 +2,7 @@ package com.personal.myapplication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -24,8 +25,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         cityTextView = findViewById(R.id.cityT)
-        val cityName = intent.getStringExtra("city")!!.toString()
-
         tempratureTextView=findViewById(R.id.tempratureT)
         windTextView=findViewById(R.id.windT)
         humidityTextView= findViewById(R.id.humidityT)
@@ -33,27 +32,23 @@ class MainActivity : AppCompatActivity() {
         conditionTextView=findViewById(R.id.conditionT)
         weatherImage=findViewById(R.id.weatherI)
 
-        val key="d1c2ffb7fe6c48c1a16103229240402"
+        //val cityName = intent.getStringExtra("city")!!.toString()
 
         weatherVM = ViewModelProvider(this).get(WeatherViewModel::class.java)
-        weatherVM.weatherDetails(key, cityName)
-
-        weatherVM.isSucessful.observe(this)
-        {
-            if (it==1) {
-                weatherVM.weatherResult.observe(this@MainActivity) {
-                    bindingValues(it)
-                }
-            } else if(it==2) {
-                Toast.makeText(this@MainActivity, "City Don't Found",
-                    Toast.LENGTH_LONG).show()
-                finish()
-            }else{
-                finish()
-                Toast.makeText(this@MainActivity, "Unable to get Details, Check your Network",
-                    Toast.LENGTH_LONG).show()
-            }
+        weatherVM.weatherResult.observe(this) {
+            bindingValues(it)
+            Log.d("MainActivity","binding")
         }
+       // weatherVM.weatherDetails(cityName)
+//        weatherVM.isSucessful.observe(this)
+//        {
+//            if (it) {
+
+//            }else{
+//                Toast.makeText(this@MainActivity, "Unable to get Details, Check your Network",
+//                    Toast.LENGTH_LONG).show()
+//            }
+//        }
     }
 
     private fun bindingValues(it: WeatherResult) {
