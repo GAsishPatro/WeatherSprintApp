@@ -33,39 +33,46 @@ class MainActivity : AppCompatActivity() {
         cityTextView = findViewById(R.id.cityT)
         val cityName = intent.getStringExtra("city")!!.toString()
 
-        tempratureTextView=findViewById(R.id.tempratureT)
-        windTextView=findViewById(R.id.windT)
-        humidityTextView= findViewById(R.id.humidityT)
-        pressureTextView=findViewById(R.id.pressureT)
-        conditionTextView=findViewById(R.id.conditionT)
-        weatherImage=findViewById(R.id.weatherI)
-        constraint= findViewById(R.id.mainConstraint)
+        tempratureTextView = findViewById(R.id.tempratureT)
+        windTextView = findViewById(R.id.windT)
+        humidityTextView = findViewById(R.id.humidityT)
+        pressureTextView = findViewById(R.id.pressureT)
+        conditionTextView = findViewById(R.id.conditionT)
+        weatherImage = findViewById(R.id.weatherI)
+        constraint = findViewById(R.id.mainConstraint)
 
         constraint.visibility = View.INVISIBLE
 
 
-        val key="d1c2ffb7fe6c48c1a16103229240402"
+
 
         weatherVM = ViewModelProvider(this).get(WeatherViewModel::class.java)
-        weatherVM.weatherDetails(key, cityName)
+        weatherVM.weatherDetails(cityName)
 
         weatherVM.isSucessful.observe(this)
         {
-            if (it==1) {
-                weatherVM.weatherResult.observe(this@MainActivity) {
-                    bindingValues(it)
-                    constraint.visibility = View.VISIBLE
+            when(it) {
+                1 -> {
+                    weatherVM.weatherResult.observe(this@MainActivity) {
+                        bindingValues(it)
+                        constraint.visibility = View.VISIBLE
+
+                    }
                 }
-            } else if(it==2) {
-                showDialog(this , "city name error")
-            }else{
-                showDialog(this , "Internet problem")
+
+                2 -> {
+                    showDialog(this, "city name error")
+                }
+
+                else -> {
+                    showDialog(this, "Internet problem")
+                }
             }
         }
     }
 
     private fun bindingValues(it: WeatherResult) {
-        val location = "${ (it.location.name) } ,${ (it.location.country) }"
+        val location = "${(it.location.name)} ,${(it.location.country)}"
         cityTextView.text = location
         conditionTextView.text = it.current.condition.text
         val temprature = "${it.current.temp_c.toString()} degree C"
@@ -81,15 +88,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun showDialog(context: Context, message:String){
-        val builder= AlertDialog.Builder(context)
-                    builder.apply {
-                        setTitle("Error while getting Details")
-                        setMessage(message)
-                        setPositiveButton("OK"){dialog,
-                        which-> finish()
-                        }
-                    }
+    fun showDialog(context: Context, message: String) {
+        val builder = AlertDialog.Builder(context)
+        builder.apply {
+            setTitle("Error while getting Details")
+            setMessage(message)
+            setPositiveButton("OK") { dialog,
+                                      which ->
+                finish()
+            }
+        }
         val dialog = builder.create()
         dialog.show()
     }

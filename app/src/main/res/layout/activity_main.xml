@@ -107,10 +107,10 @@
         android:id="@+id/weatherI"
         android:layout_width="156dp"
         android:layout_height="148dp"
-        android:layout_marginBottom="503dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/conditionT"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cityT"
         app:srcCompat="@android:drawable/btn_star_big_on" />

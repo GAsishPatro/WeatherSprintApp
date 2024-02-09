@@ -31,8 +31,6 @@ class HomeActivity : AppCompatActivity() {
                 Toast.makeText(this,"No Internet Connection",
                     Toast.LENGTH_LONG).show()
             }
-
-
         }
 
     }

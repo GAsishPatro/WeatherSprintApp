@@ -12,13 +12,13 @@ import retrofit2.HttpException
 class WeatherViewModel(application: Application):AndroidViewModel(application) {
 
     val repository = WeatherRepository()
+    val key = "d1c2ffb7fe6c48c1a16103229240402"
+    val weatherResult = MutableLiveData<WeatherResult>()
+    val isSucessful = MutableLiveData<Int>()
 
-    var weatherResult = MutableLiveData<WeatherResult>()
-    var isSucessful = MutableLiveData<Int>()
+    fun weatherDetails(cityName: String){
 
-    fun weatherDetails(key: String, cityName: String){
-
-        viewModelScope.launch(Dispatchers.Default) {
+        viewModelScope.launch(Dispatchers.IO) {
             Log.d("viewModelActivity", "Data Started generating")
             try{
                 val details = repository.getWeatherDetails(key, cityName)
