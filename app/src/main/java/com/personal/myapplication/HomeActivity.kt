@@ -22,16 +22,17 @@ class HomeActivity : AppCompatActivity() {
         weatherButton = findViewById(R.id.weatherB)
 
 
-        if(isNetworkAvailable()){
-            Toast.makeText(this,"Connected to Internet",
-                Toast.LENGTH_LONG).show()
-        }else{
-            Toast.makeText(this,"No Internet Connection",
-                Toast.LENGTH_LONG).show()
-        }
+
         weatherButton.setOnClickListener {
             val cityName = cityEditText.text.toString()
-            buttonClickFunction(cityName)
+            if(isNetworkAvailable()){
+                buttonClickFunction(cityName)
+            }else{
+                Toast.makeText(this,"No Internet Connection",
+                    Toast.LENGTH_LONG).show()
+            }
+
+
         }
 
     }

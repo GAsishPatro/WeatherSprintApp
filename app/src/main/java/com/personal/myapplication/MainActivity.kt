@@ -1,10 +1,12 @@
 package com.personal.myapplication
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 
@@ -45,6 +47,7 @@ class MainActivity : AppCompatActivity() {
                     bindingValues(it)
                 }
             } else if(it==2) {
+                showDialog(this , "city name error")
                 Toast.makeText(this@MainActivity, "City Don't Found",
                     Toast.LENGTH_LONG).show()
                 finish()
@@ -71,5 +74,17 @@ class MainActivity : AppCompatActivity() {
         it.current.condition.icon?.let {
             Glide.with(this@MainActivity).load(image).into(weatherImage)
         }
+    }
+
+    fun showDialog(context: Context, message:String){
+        val builder= AlertDialog.Builder(context)
+                    builder.apply {
+                        setMessage(message)
+                        setPositiveButton("OK"){dialog,
+                        which-> finish()
+                        }
+                    }
+        val dialog = builder.create()
+        dialog.show()
     }
 }
