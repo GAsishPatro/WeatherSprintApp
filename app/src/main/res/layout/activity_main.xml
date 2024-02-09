@@ -87,7 +87,8 @@
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/humidity">
+                android:src="@drawable/humidity"
+                app:srcCompat="@drawable/humidity">
 
             </ImageView>
 
