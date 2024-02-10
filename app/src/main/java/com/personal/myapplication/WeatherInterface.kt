@@ -1,6 +1,6 @@
 package com.personal.myapplication
 
-import androidx.lifecycle.MutableLiveData
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
@@ -20,6 +20,7 @@ interface WeatherInterface {
             val retrofitInstance  = Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
+                .client(OkHttpClient.Builder().cache(null).build())
                 .build()
 
             return retrofitInstance.create(WeatherInterface::class.java)

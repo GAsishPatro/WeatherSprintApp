@@ -11,7 +11,7 @@ import retrofit2.HttpException
 
 class WeatherViewModel(application: Application):AndroidViewModel(application) {
 
-    val repository = WeatherRepository()
+    val repository = WeatherRepository(application)
     val key = "d1c2ffb7fe6c48c1a16103229240402"
     val weatherResult = MutableLiveData<WeatherResult>()
     val isSucessful = MutableLiveData<Int>()

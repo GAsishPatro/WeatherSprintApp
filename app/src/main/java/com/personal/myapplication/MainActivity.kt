@@ -4,14 +4,9 @@ import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageView
-import android.widget.ProgressBar
-import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.constraintlayout.widget.Constraints
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.personal.myapplication.databinding.ActivityMainBinding
 
@@ -34,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         weatherVM = ViewModelProvider(this).get(WeatherViewModel::class.java)
         weatherVM.weatherDetails(cityName)
 
-        weatherVM.isSucessful.observe(this)
+        weatherVM.isSucessful.observe(this, Observer
         { it ->
             when(it) {
                 1 -> {
@@ -50,7 +45,7 @@ class MainActivity : AppCompatActivity() {
                     showDialog(this, "Internet problem")
                 }
             }
-        }
+        })
     }
 
     private fun bindingValues(it: WeatherResult) {
