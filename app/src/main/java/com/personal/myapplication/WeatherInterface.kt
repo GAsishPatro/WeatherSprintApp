@@ -14,7 +14,7 @@ interface WeatherInterface {
         @Query("q")cityname: String) : WeatherResult
 
     companion object{
-        val BASE_URL= "http://api.weatherapi.com/v1/"
+        private val BASE_URL= "http://api.weatherapi.com/v1/"
 
         fun getInstance(): WeatherInterface{
             val retrofitInstance  = Retrofit.Builder()

@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Weather Sprint</string>
+    <string name="apiKey">d1c2ffb7fe6c48c1a16103229240402</string>
+    <string name="humid">Humidity</string>
+    <string name="feels_like">Feels like</string>
+    <string name="pressure">Pressure</string>
+    <string name="Wind">Wind</string>
+    <string name="uv">UV</string>
+    <string name="vis">Visibility</string>
+    <string name="weather_button">Find Weather</string>
+    <string name="city_name">Enter a city Name</string>
+    <string name="city_name_input">City Name</string>
 </resources>

@@ -11,8 +11,8 @@ import android.widget.Toast
 
 class HomeActivity : AppCompatActivity() {
 
-    lateinit var cityEditText: EditText
-    lateinit var weatherButton: Button
+    private lateinit var cityEditText: EditText
+    private lateinit var weatherButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,10 +46,8 @@ class HomeActivity : AppCompatActivity() {
     }
 
 
-    fun isNetworkAvailable():Boolean{
+    private fun isNetworkAvailable():Boolean{
         val cManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        if(cManager.activeNetwork == null)
-            return false
-        return true
+        return cManager.activeNetwork != null
     }
 }

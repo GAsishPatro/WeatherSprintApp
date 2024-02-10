@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.personal.myapplication.databinding.ActivityMainBinding
 
@@ -18,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        supportActionBar?.show()
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -26,11 +26,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.mainLayout.visibility = View.INVISIBLE
 
-        weatherVM = ViewModelProvider(this).get(WeatherViewModel::class.java)
+        weatherVM = ViewModelProvider(this)[WeatherViewModel::class.java]
         weatherVM.weatherDetails(cityName)
 
-        weatherVM.isSucessful.observe(this, Observer
-        { it ->
+        weatherVM.isSuccessful.observe(this) { it ->
             when(it) {
                 1 -> {
                     weatherVM.weatherResult.observe(this@MainActivity) {
@@ -45,34 +44,46 @@ class MainActivity : AppCompatActivity() {
                     showDialog(this, "Internet problem")
                 }
             }
-        })
-    }
-
-    private fun bindingValues(it: WeatherResult) {
-        val location = "${(it.location.name)} ,${(it.location.country)}"
-        binding.locationT.text = location
-        binding.weatherconditionT.text = it.current.condition.text
-        val temprature = "${it.current.temp_c.toString()}°C"
-        binding.tempratureT.text = temprature
-        val wind = "${it.current.wind_kph.toString()} Km/Hr"
-        binding.windspeedT.text = wind
-        binding.humidityT.text = it.current.humidity.toString()
-        binding.pressureT.text = it.current.pressure_in.toString()
-        binding.timeT.text= it.location.localtime
-        val image = "https:" + it.current.condition.icon
-
-        it.current.condition.icon?.let {
-            Glide.with(this@MainActivity).load(image).into(binding.weatherimageT)
         }
     }
 
-    fun showDialog(context: Context, message: String) {
+    private fun bindingValues(res: WeatherResult) {
+        val location = "${(res.location.name)}, ${(res.location.region)} ,${(res.location.country)}"
+        val temperature = "${res.current.temp_c}°C"
+        val wind = "${res.current.wind_kph} Km/Hr"
+        val humid="${res.current.humidity}%"
+        val vis = "${res.current.vis_km} Km"
+        val feelsLike = "${res.current.feelslike_c}°C"
+        val pressure = "${res.current.pressure_in} mb"
+        val lastUpdate = "last updated: ${res.current.last_updated}"
+        val image = "https:" + res.current.condition.icon
+
+
+        binding.apply{
+            locationT.text = location
+            weatherconditionT.text = res.current.condition.text
+            tempratureT.text = temperature
+            windspeedT.text = wind
+            humidityT.text = humid
+            pressureT.text = pressure
+            uvT.text = res.current.uv.toString()
+            visT.text = vis
+            feelsT.text = feelsLike
+            lastupdateT.text = lastUpdate
+            timeT.text = res.location.localtime
+            res.current.condition.icon?.let {
+                Glide.with(this@MainActivity).load(image).into(weatherimageT)
+            }
+        }
+
+    }
+
+    private fun showDialog(context: Context, message: String) {
         val builder = AlertDialog.Builder(context)
         builder.apply {
             setTitle("Error while getting Details")
             setMessage(message)
-            setPositiveButton("OK") { dialog,
-                                      which ->
+            setPositiveButton("OK") { _, _ ->
                 finish()
             }
         }

@@ -6,6 +6,10 @@ data class WeatherUtility(
     val pressure_in : Double,
     val humidity : Double,
     val condition: WeatherImage,
+    val feelslike_c: Double,
+    val vis_km: Double,
+    val uv: Int,
+    val last_updated: String
 )
 
 data class WeatherResult(
@@ -21,7 +25,8 @@ data class WeatherImage(
 data class WeatherLocation(
     val name: String,
     val country: String,
-    val localtime: String
+    val localtime: String,
+    val region: String
 )
 
 

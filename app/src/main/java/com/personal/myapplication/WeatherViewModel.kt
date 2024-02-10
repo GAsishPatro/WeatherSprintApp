@@ -11,10 +11,10 @@ import retrofit2.HttpException
 
 class WeatherViewModel(application: Application):AndroidViewModel(application) {
 
-    val repository = WeatherRepository(application)
+    private val repository = WeatherRepository(application)
     val key = "d1c2ffb7fe6c48c1a16103229240402"
     val weatherResult = MutableLiveData<WeatherResult>()
-    val isSucessful = MutableLiveData<Int>()
+    val isSuccessful = MutableLiveData<Int>()
 
     fun weatherDetails(cityName: String){
 
@@ -24,15 +24,15 @@ class WeatherViewModel(application: Application):AndroidViewModel(application) {
                 val details = repository.getWeatherDetails(key, cityName)
                 weatherResult.postValue(details)
                 Log.d("ViewModelActivity", "Data generation successful")
-                isSucessful.postValue(1)
+                isSuccessful.postValue(1)
             }
             catch(err: HttpException){
                 Log.d("ViewModelActivity", "User inputed a wrong city name")
-                isSucessful.postValue(2)
+                isSuccessful.postValue(2)
             }
             catch (err: Exception){
                 Log.d("ViewModelActivity", "Bad Internet Connection")
-                isSucessful.postValue(0)
+                isSuccessful.postValue(0)
             }
         }
     }
