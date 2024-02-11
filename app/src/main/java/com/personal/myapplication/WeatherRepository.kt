@@ -1,9 +1,8 @@
 package com.personal.myapplication
 
-import android.content.Context
 import android.util.Log
 
-class WeatherRepository(ctx: Context) {
+class WeatherRepository {
 
     suspend fun getWeatherDetails(key: String, cityName: String): WeatherResult{
 
