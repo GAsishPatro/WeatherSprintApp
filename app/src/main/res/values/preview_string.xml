@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="weather">Weather</string>
+    <string name="temp">24°C</string>
+    <string name="time">Time</string>
+    <string name="location">Location</string>
+    <string name="updated_time">Last Updated</string>
+</resources>

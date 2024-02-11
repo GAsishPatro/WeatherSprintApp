@@ -19,7 +19,7 @@
         android:layout_height="64dp"
         android:fontFamily="sans-serif"
         android:gravity="center"
-        android:text="Location"
+        android:text="@string/location"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="28sp"
@@ -31,7 +31,7 @@
         android:layout_height="35dp"
         android:fontFamily="sans-serif"
         android:gravity="center"
-        android:text="Time"
+        android:text="@string/time"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -41,7 +41,8 @@
         android:id="@+id/weatherimageT"
         android:layout_width="132dp"
         android:layout_height="95dp"
-        app:srcCompat="@android:drawable/ic_delete" />
+        app:srcCompat="@android:drawable/ic_delete"
+        android:contentDescription="@string/weather" />
 
     <TextView
         android:id="@+id/weatherconditionT"
@@ -49,7 +50,7 @@
         android:layout_height="38dp"
         android:fontFamily="sans-serif"
         android:gravity="center"
-        android:text="Weather"
+        android:text="@string/weather"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -60,7 +61,7 @@
         android:layout_height="100dp"
         android:fontFamily="sans-serif"
         android:gravity="center"
-        android:text="24°C"
+        android:text="@string/temp"
         android:textColor="@color/white"
         android:textSize="60sp"
         android:textStyle="bold" />
@@ -87,7 +88,8 @@
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/humidity">
+                android:src="@drawable/humidity"
+                android:contentDescription="@string/humid">
 
             </ImageView>
 
@@ -140,7 +142,8 @@
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="62dp"
-                android:src="@drawable/pressure">
+                android:src="@drawable/pressure"
+                android:contentDescription="@string/pressure">
 
             </ImageView>
 
@@ -193,7 +196,8 @@
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="64dp"
-                android:src="@drawable/wind">
+                android:src="@drawable/wind"
+                android:contentDescription="@string/Wind">
 
             </ImageView>
 
@@ -266,7 +270,8 @@
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/uv"/>
+                android:src="@drawable/uv"
+                android:contentDescription="@string/uv" />
 
             <Space
                 android:layout_width="5dp"
@@ -312,7 +317,8 @@
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="62dp"
-                android:src="@drawable/visibility"/>
+                android:src="@drawable/visibility"
+                android:contentDescription="@string/vis" />
 
             <Space
                 android:layout_width="5dp"
@@ -358,7 +364,8 @@
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="64dp"
-                android:src="@drawable/feels_like"/>
+                android:src="@drawable/feels_like"
+                android:contentDescription="@string/feels_like" />
 
             <Space
                 android:layout_width="5dp"
@@ -404,7 +411,7 @@
         android:fontFamily="sans-serif"
         android:gravity="bottom|end"
         android:paddingBottom="6dp"
-        android:text="Updated Time"
+        android:text="@string/updated_time"
         android:textAlignment="textEnd"
         android:textColor="@color/white"
         android:textSize="16sp" />

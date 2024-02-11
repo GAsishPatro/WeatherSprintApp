@@ -29,7 +29,7 @@
                 android:layout_height="match_parent"
                 android:paddingTop="20dp"
                 android:paddingBottom="15dp"
-                android:text="Location"
+                android:text="@string/location"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="34sp"
@@ -49,7 +49,7 @@
                 android:layout_height="match_parent"
                 android:paddingTop="10dp"
 
-                android:text="Time"
+                android:text="@string/time"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
@@ -70,7 +70,8 @@
                 android:paddingTop="10dp"
                 android:paddingRight="10dp"
                 android:paddingBottom="10dp"
-                android:scaleType="fitXY" />
+                android:scaleType="fitXY"
+                android:contentDescription="@string/weather" />
 
             <TextView
                 android:id="@+id/tempratureT"
@@ -78,7 +79,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center_horizontal|center_vertical"
-                android:text="24°C"
+                android:text="@string/temp"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="34sp"
@@ -99,7 +100,7 @@
                 android:paddingStart="20dp"
                 android:paddingTop="15dp"
                 android:paddingBottom="15dp"
-                android:text="Weather"
+                android:text="@string/weather"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="34sp" />
@@ -109,7 +110,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Updated Time"
+                android:text="@string/updated_time"
                 android:textAlignment="viewEnd"
                 android:textColor="#F8F9FA"
                 android:textSize="16sp" />
@@ -132,7 +133,7 @@
             android:layout_weight=".5"
             android:orientation="vertical"
             android:weightSum="1"
-            android:layout_marginRight="5dp">
+            android:layout_marginEnd="5dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -150,8 +151,8 @@
                         android:layout_width="172dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-
-                        app:srcCompat="@drawable/humidity" />
+                        app:srcCompat="@drawable/humidity"
+                        android:contentDescription="@string/humid" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -213,8 +214,8 @@
                         android:layout_width="172dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-
-                        app:srcCompat="@drawable/pressure" />
+                        app:srcCompat="@drawable/pressure"
+                        android:contentDescription="@string/pressure" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -271,7 +272,8 @@
                         android:layout_width="173dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/wind" />
+                        app:srcCompat="@drawable/wind"
+                        android:contentDescription="@string/Wind" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -283,7 +285,7 @@
                             android:id="@+id/textView7"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
+
                             android:paddingTop="20dp"
                             android:text="@string/Wind"
                             android:textAlignment="center"
@@ -301,7 +303,8 @@
                             android:textAlignment="center"
                             android:textColor="#F8F9FA"
                             android:textSize="20sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            tools:ignore="NestedWeights" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -315,7 +318,7 @@
             android:layout_weight=".5"
             android:orientation="vertical"
             android:weightSum="1"
-            android:layout_marginLeft="10dp">
+            android:layout_marginStart="10dp">
 
 
             <LinearLayout
@@ -335,7 +338,8 @@
                         android:layout_width="170dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/uv" />
+                        app:srcCompat="@drawable/uv"
+                        android:contentDescription="@string/uv" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -392,7 +396,8 @@
                         android:layout_width="169dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/visibility" />
+                        app:srcCompat="@drawable/visibility"
+                        android:contentDescription="@string/vis" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -404,7 +409,7 @@
                             android:id="@+id/textView6"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
+
                             android:paddingTop="20dp"
                             android:text="@string/vis"
                             android:textAlignment="center"
@@ -449,7 +454,8 @@
                         android:layout_width="169dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/feels_like" />
+                        app:srcCompat="@drawable/feels_like"
+                        android:contentDescription="@string/feels_like" />
 
                     <LinearLayout
                         android:layout_width="match_parent"

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="no_internet">No Internet Connection</string>
+    <string name="city_IsEmpty">Please Enter City Name</string>
+    <string name="apiKey">d1c2ffb7fe6c48c1a16103229240402</string>
+    <string name="dialog_title">Unable to fetch details !</string>
+    <string name="city_not_found">City Not Available</string>
+    <string name="internet_error">Network not available.</string>
+</resources>

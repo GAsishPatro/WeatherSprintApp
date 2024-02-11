@@ -33,15 +33,15 @@ class MainActivity : AppCompatActivity() {
             when(it) {
                 1 -> {
                     weatherVM.weatherResult.observe(this@MainActivity) {
-                        binding.mainLayout.visibility = View.VISIBLE
                         bindingValues(it)
+                        binding.mainLayout.visibility = View.VISIBLE
                     }
                 }
                 2 -> {
-                    showDialog(this, "city name error")
+                    showDialog(this, getString(R.string.city_not_found))
                 }
                 else -> {
-                    showDialog(this, "Internet problem")
+                    showDialog(this, getString(R.string.internet_error))
                 }
             }
         }
@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
     private fun showDialog(context: Context, message: String) {
         val builder = AlertDialog.Builder(context)
         builder.apply {
-            setTitle("Error while getting Details")
+            setTitle(this@MainActivity.getString(R.string.dialog_title))
             setMessage(message)
             setPositiveButton("OK") { _, _ ->
                 finish()

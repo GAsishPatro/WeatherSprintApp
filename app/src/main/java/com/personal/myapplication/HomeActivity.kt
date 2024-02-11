@@ -5,9 +5,11 @@ import android.content.Intent
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.personal.myapplication.databinding.ActivityMainBinding
 
 class HomeActivity : AppCompatActivity() {
 
@@ -21,14 +23,12 @@ class HomeActivity : AppCompatActivity() {
         cityEditText = findViewById(R.id.cityE)
         weatherButton = findViewById(R.id.weatherB)
 
-
-
         weatherButton.setOnClickListener {
             val cityName = cityEditText.text.toString()
             if(isNetworkAvailable()){
                 buttonClickFunction(cityName)
             }else{
-                Toast.makeText(this,"No Internet Connection",
+                Toast.makeText(this,getString(R.string.no_internet),
                     Toast.LENGTH_LONG).show()
             }
         }
@@ -41,7 +41,7 @@ class HomeActivity : AppCompatActivity() {
             intent.putExtra("city", cityName)
             startActivity(intent)
         } else {
-            Toast.makeText(this, "Please enter city name", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.city_IsEmpty), Toast.LENGTH_LONG).show()
         }
     }
 

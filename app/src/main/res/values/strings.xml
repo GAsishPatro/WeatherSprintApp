@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Weather Sprint</string>
-    <string name="apiKey">d1c2ffb7fe6c48c1a16103229240402</string>
     <string name="humid">Humidity</string>
     <string name="feels_like">Feels like</string>
     <string name="pressure">Pressure</string>
