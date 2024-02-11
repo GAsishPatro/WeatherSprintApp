@@ -10,7 +10,7 @@
     android:orientation="vertical"
     android:paddingTop="5dp"
     android:textAlignment="center"
-    tools:context=".MainActivity">
+    tools:context=".view.MainActivity">
 
 
     <TextView

@@ -1,4 +1,4 @@
-package com.personal.myapplication
+package com.personal.myapplication.view
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,9 @@ import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.personal.myapplication.R
+import com.personal.myapplication.model.WeatherResult
+import com.personal.myapplication.viewModel.WeatherViewModel
 import com.personal.myapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

@@ -1,6 +1,5 @@
-package com.personal.myapplication
+package com.personal.myapplication.model
 
-import android.content.Context
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -17,7 +16,7 @@ interface WeatherInterface {
     companion object{
         private val BASE_URL= "http://api.weatherapi.com/v1/"
 
-        fun getInstance() : WeatherInterface{
+        fun getInstance() : WeatherInterface {
             val retrofitInstance  = Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
