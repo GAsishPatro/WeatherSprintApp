@@ -1,4 +1,4 @@
-package com.personal.myapplication
+package com.personal.myapplication.view
 
 import android.content.Context
 import android.content.Intent
@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.personal.myapplication.R
 
 
 class HomeActivity : AppCompatActivity() {

@@ -1,10 +1,13 @@
-package com.personal.myapplication
+package com.personal.myapplication.ViewModel
 
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.personal.myapplication.R
+import com.personal.myapplication.model.WeatherRepository
+import com.personal.myapplication.model.WeatherResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.HttpException

@@ -1,4 +1,4 @@
-package com.personal.myapplication
+package com.personal.myapplication.model
 
 data class WeatherUtility(
     val temp_c: Double,

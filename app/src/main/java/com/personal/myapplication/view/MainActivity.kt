@@ -1,12 +1,16 @@
-package com.personal.myapplication
+package com.personal.myapplication.view
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AlertDialog
+import androidx.core.app.ActivityCompat
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.personal.myapplication.R
+import com.personal.myapplication.model.WeatherResult
+import com.personal.myapplication.ViewModel.WeatherViewModel
 import com.personal.myapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -35,6 +39,7 @@ class MainActivity : AppCompatActivity() {
                     weatherVM.weatherResult.observe(this@MainActivity) {
                         bindingValues(it)
                         binding.mainLayout.visibility = View.VISIBLE
+                        onBackPressedDispatcher
                     }
                 }
                 2 -> {
@@ -45,6 +50,11 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        ActivityCompat.finishAffinity(this)
     }
 
     private fun bindingValues(res: WeatherResult) {
