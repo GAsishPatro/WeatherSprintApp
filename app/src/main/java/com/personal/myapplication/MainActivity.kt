@@ -11,8 +11,8 @@ import com.personal.myapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var weatherVM: WeatherViewModel
-    lateinit var binding: ActivityMainBinding
+    private lateinit var weatherVM: WeatherViewModel
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

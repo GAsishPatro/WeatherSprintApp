@@ -45,7 +45,6 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-
     private fun isNetworkAvailable():Boolean{
         val cManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         return cManager.activeNetwork != null
