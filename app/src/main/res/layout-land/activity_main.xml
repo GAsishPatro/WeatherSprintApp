@@ -17,48 +17,31 @@
         android:orientation="vertical"
         android:weightSum="1">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/locationT"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight=".35"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:text="@string/location"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/locationT"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingTop="20dp"
-                android:paddingBottom="15dp"
-                android:text="@string/location"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="34sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/timeT"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight=".39"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/timeT"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingTop="10dp"
-
-                android:text="@string/time"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:text="@string/time"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight=".3"
+            android:layout_height="122dp"
+            android:layout_weight="0"
             android:orientation="horizontal"
             android:textAlignment="center">
 
@@ -66,12 +49,8 @@
                 android:id="@+id/weatherimageT"
                 android:layout_width="137dp"
                 android:layout_height="match_parent"
-                android:paddingLeft="10dp"
-                android:paddingTop="10dp"
-                android:paddingRight="10dp"
-                android:paddingBottom="10dp"
-                android:scaleType="fitXY"
-                android:contentDescription="@string/weather" />
+                android:contentDescription="@string/weather"
+                android:scaleType="matrix" />
 
             <TextView
                 android:id="@+id/tempratureT"
@@ -87,34 +66,26 @@
 
         </LinearLayout>
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/weatherconditionT"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_weight="1"
+            android:paddingStart="20dp"
+            android:text="goa"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="34sp" />
 
-            <TextView
-                android:id="@+id/weatherconditionT"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingStart="20dp"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:text="@string/weather"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="34sp" />
-
-            <TextView
-                android:id="@+id/lastupdateT"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/updated_time"
-                android:textAlignment="viewEnd"
-                android:textColor="#F8F9FA"
-                android:textSize="16sp" />
-        </LinearLayout>
+        <TextView
+            android:id="@+id/lastupdateT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/updated_time"
+            android:textAlignment="viewEnd"
+            android:textColor="#F8F9FA"
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -224,7 +195,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/textView2"
+                            android:id="@+id/nameT"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
