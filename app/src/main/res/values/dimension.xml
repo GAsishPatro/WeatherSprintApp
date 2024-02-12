@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="city_size">24sp</dimen>
+    <dimen name="city_layout">128dp</dimen>
+    <dimen name="city_name_size">28sp</dimen>
+    <dimen name="cityEdit_margin_top">80dp</dimen>
+    <dimen name="button_elevation">100dp</dimen>
+    <dimen name="button_icon_padding">16dp</dimen>
+
+    <dimen name="main_background_padding_top">5dp</dimen>
+    
+    <dimen name="location_height">64dp</dimen>
+    <dimen name="location_text_size">28sp</dimen>
+    
+    <dimen name="time_height">35dp</dimen>
+    <dimen name="time_text_size">20dp</dimen>
+    
+    <dimen name="weather_image_width">132dp</dimen>
+    <dimen name="weather_image_height">95dp</dimen>
+    
+    <dimen name="weather_height">38dp</dimen>
+    <dimen name="weather_text_size">20sp</dimen>
+    
+    <dimen name="temperature_height">90dp</dimen>
+    <dimen name="temperature_size">60sp</dimen>
+    
+    <dimen name="first_linear_height">144dp</dimen>
+
+    <dimen name="space_width">10dp</dimen>
+    <dimen name="padding_top">10dp</dimen>
+
+</resources>
