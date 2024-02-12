@@ -3,6 +3,7 @@
     <style name="Base.Theme.FirstApp" parent="Theme.Material3.DayNight">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="actionBarSize">48dp</item>
     </style>
 
     <style name="Theme.FirstApp" parent="Base.Theme.FirstApp" />
