@@ -29,12 +29,17 @@ class MainActivity : AppCompatActivity() {
 
         binding.mainLayout.visibility = View.INVISIBLE
 
+        val pref = getSharedPreferences("cityNames", MODE_PRIVATE)
+        val editor = pref.edit()
+
         weatherVM = ViewModelProvider(this)[WeatherViewModel::class.java]
         weatherVM.weatherDetails(cityName)
 
         weatherVM.isSuccessful.observe(this) { it ->
             when(it) {
                 1 -> {
+                    editor.putString("city",cityName)
+                    editor.apply()
                     weatherVM.weatherResult.observe(this@MainActivity) {
                         bindingValues(it)
                         binding.mainLayout.visibility = View.VISIBLE
