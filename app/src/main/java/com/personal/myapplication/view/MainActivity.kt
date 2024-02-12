@@ -30,9 +30,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val cityName = intent.getStringExtra("city")!!.toString()
-
         binding.mainLayout.visibility = View.INVISIBLE
+
+        val cityName = intent.getStringExtra("city")!!.toString()
 
         val pref = getSharedPreferences("cityNames", MODE_PRIVATE)
         val editor = pref.edit()
@@ -73,7 +73,6 @@ class MainActivity : AppCompatActivity() {
         val lastUpdate = "last updated: ${res.current.last_updated}"
         val image = "https:" + res.current.condition.icon
 
-
         binding.apply{
             locationT.text = location
             weatherconditionT.text = res.current.condition.text
@@ -90,7 +89,6 @@ class MainActivity : AppCompatActivity() {
                 Glide.with(this@MainActivity).load(image).into(weatherimageT)
             }
         }
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

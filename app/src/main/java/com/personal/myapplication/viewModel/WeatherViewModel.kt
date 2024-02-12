@@ -22,19 +22,15 @@ class WeatherViewModel(application: Application):AndroidViewModel(application) {
     fun weatherDetails(cityName: String){
 
         viewModelScope.launch(Dispatchers.IO) {
-            Log.d("viewModelActivity", "Data Started generating")
             try{
                 val details = repository.getWeatherDetails(key, cityName)
                 weatherResult.postValue(details)
-                Log.d("ViewModelActivity", "Data generation successful")
                 isSuccessful.postValue(1)
             }
             catch(err: HttpException){
-                Log.d("ViewModelActivity", "User inputed a wrong city name")
                 isSuccessful.postValue(2)
             }
             catch (err: Exception){
-                Log.d("ViewModelActivity", "Bad Internet Connection")
                 isSuccessful.postValue(0)
             }
         }

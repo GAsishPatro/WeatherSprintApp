@@ -13,7 +13,7 @@
     <dimen name="location_text_size">28sp</dimen>
     
     <dimen name="time_height">35dp</dimen>
-    <dimen name="time_text_size">20dp</dimen>
+    <dimen name="time_text_size">20sp</dimen>
     
     <dimen name="weather_image_width">132dp</dimen>
     <dimen name="weather_image_height">95dp</dimen>
