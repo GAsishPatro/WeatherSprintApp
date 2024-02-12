@@ -30,7 +30,6 @@ class HomeActivity : AppCompatActivity() {
 
         buttonClickFunction()
 
-
         weatherButton.setOnClickListener {
             if(isNetworkAvailable()){
                 buttonClickFunction()
@@ -39,7 +38,6 @@ class HomeActivity : AppCompatActivity() {
                     Toast.LENGTH_LONG).show()
             }
         }
-
     }
 
     private fun buttonClickFunction() {

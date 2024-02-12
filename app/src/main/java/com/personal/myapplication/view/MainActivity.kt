@@ -1,13 +1,13 @@
 package com.personal.myapplication.view
 
 import android.content.Context
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
@@ -58,37 +58,8 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-    }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            R.id.refresh->{
-                Toast.makeText(this, getString(R.string.refereshing),Toast.LENGTH_LONG).show()
-                refreshFunction()
-            }
-            R.id.change_city-> finish()
-            R.id.exit-> finishAffinity()
-        }
-
-        return super.onOptionsItemSelected(item)
-    }
-
-    private fun refreshFunction() {
-        weatherVM.isSuccessful.observe(this) { it ->
-            when (it) {
-                1 -> {
-                    weatherVM.weatherResult.observe(this@MainActivity) {
-                        bindingValues(it)
-                    }
-                }
-                else -> showDialog(this, getString(R.string.internet_error))
-            }
-        }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.my_menu, menu)
-        return super.onCreateOptionsMenu(menu)
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
     }
 
     private fun bindingValues(res: WeatherResult) {
@@ -121,6 +92,50 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.my_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.refresh->{
+                Toast.makeText(this, getString(R.string.refereshing),Toast.LENGTH_LONG).show()
+                refreshFunction()
+            }
+            R.id.change_city-> finish()
+            R.id.exit-> finishAffinity()
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun refreshFunction() {
+        weatherVM.isSuccessful.observe(this) { it ->
+            when (it) {
+                1 -> {
+                    weatherVM.weatherResult.observe(this@MainActivity) {
+                        bindingValues(it)
+                    }
+                }
+                else -> showDialog(this, getString(R.string.internet_error))
+            }
+        }
+    }
+
+    private var click=0
+    private val onBackPressedCallback= object: OnBackPressedCallback(true){
+        override fun handleOnBackPressed() {
+            if(click==1){
+                finishAffinity()
+            }
+            else{
+                click++
+                Toast.makeText(this@MainActivity, getString(R.string.exit_press), Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+
 
     private fun showDialog(context: Context, message: String) {
         val builder = AlertDialog.Builder(context)

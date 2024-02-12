@@ -8,4 +8,5 @@
     <string name="internet_error">Network not available.</string>
     <string name="refereshing">Refreshing...</string>
     <string name="action_title">Weather Report</string>
+    <string name="exit_press">Press Back again to exit</string>
 </resources>
