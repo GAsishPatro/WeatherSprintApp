@@ -7,4 +7,5 @@
     <string name="city_not_found">City Not Available</string>
     <string name="internet_error">Network not available.</string>
     <string name="refereshing">Refreshing...</string>
+    <string name="action_title">Weather Report</string>
 </resources>

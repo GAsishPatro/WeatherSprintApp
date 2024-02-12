@@ -18,6 +18,7 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+        supportActionBar?.hide()
 
         splashImage=findViewById(R.id.splashI)
 
@@ -32,7 +33,7 @@ class SplashActivity : AppCompatActivity() {
                 finish()
             }
 
-        },3000)
+        },2000)
     }
 
 

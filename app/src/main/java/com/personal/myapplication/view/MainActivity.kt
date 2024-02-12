@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         supportActionBar?.show()
+        supportActionBar?.title=getString(R.string.action_title)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -65,13 +66,8 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, getString(R.string.refereshing),Toast.LENGTH_LONG).show()
                 refreshFunction()
             }
-            R.id.change_city->{
-                val intent = Intent(this,HomeActivity::class.java)
-                startActivity(intent)
-            }
-            R.id.exit->{
-                finishAffinity()
-            }
+            R.id.change_city-> finish()
+            R.id.exit-> finishAffinity()
         }
 
         return super.onOptionsItemSelected(item)

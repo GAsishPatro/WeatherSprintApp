@@ -19,14 +19,21 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+        supportActionBar?.hide()
 
         cityEditText = findViewById(R.id.cityE)
         weatherButton = findViewById(R.id.weatherB)
 
+        val pref= getSharedPreferences("cityNames", MODE_PRIVATE)
+        val city = pref.getString("city","")
+        cityEditText.setText(city)
+
+        buttonClickFunction()
+
+
         weatherButton.setOnClickListener {
-            val cityName = cityEditText.text.toString()
             if(isNetworkAvailable()){
-                buttonClickFunction(cityName)
+                buttonClickFunction()
             }else{
                 Toast.makeText(this,getString(R.string.no_internet),
                     Toast.LENGTH_LONG).show()
@@ -35,7 +42,8 @@ class HomeActivity : AppCompatActivity() {
 
     }
 
-    private fun buttonClickFunction(cityName: String) {
+    private fun buttonClickFunction() {
+        val cityName = cityEditText.text.toString()
         if (cityName.isNotEmpty()) {
             val intent = Intent(this, MainActivity::class.java)
             intent.putExtra("city", cityName)
